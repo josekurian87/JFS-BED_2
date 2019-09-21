@@ -16,7 +16,7 @@ import com.wipro.jfs.service.UserService;
 public class TestResultController {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	@RequestMapping(value = "/evaluate/{topic}/test", method = RequestMethod.POST)
 	public String submitTest(@PathVariable("topic") String topic, Model model, HttpServletRequest request) {

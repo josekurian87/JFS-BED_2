@@ -15,26 +15,29 @@ import com.wipro.jfs.entity.User;
 public class UserService {
 
 	@Autowired
-	UserDao userDao;
+	private UserDao userDao;
 	
 	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
 	List<User> userList = null;
 	
 	public String validateLogin(User user) {
-		userList = userDao.findByEmail(user.getEmail());
-		if(userList.size()>0) {
-			User dbUser = userList.get(0);
-			if(user!=null && encoder.matches(user.getPassword(), dbUser.getPassword())) {
-				return ("A".equals(dbUser.getType()))?"SA":"SC";
-			}
+//		userList = userDao.findByEmail(user.getEmail());
+//		if(userList.size()>0) {
+//			User dbUser = userList.get(0);
+		User dbUser = userDao.findByEmail(user.getEmail());
+		if(user!=null && encoder.matches(user.getPassword(), dbUser.getPassword())) {
+			return ("A".equals(dbUser.getType()))?"SA":"SC";
 		}
+//		}
 		return "I";
 	}
 
 	public String registerUser(User user) {
-		List<User> result = userDao.findByEmail(user.getEmail()); 
-		if(result.size()>0) {
+//		List<User> result = userDao.findByEmail(user.getEmail()); 
+//		if(result.size()>0) {
+		User dbUser = userDao.findByEmail(user.getEmail());
+		if(dbUser!=null) {
 			return "D";
 		} else {
 			user.setPassword(encoder.encode(user.getPassword()));

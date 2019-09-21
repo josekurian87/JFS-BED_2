@@ -12,7 +12,7 @@ import com.wipro.jfs.entity.TestData;
 public class TestDataService {
 
 	@Autowired
-	TestDataRepo testDataRepo;
+	private TestDataRepo testDataRepo;
 	
 	public List<TestData> getQuestions(String topic) {
 		return testDataRepo.findByTopicOrderByNoAsc(topic);

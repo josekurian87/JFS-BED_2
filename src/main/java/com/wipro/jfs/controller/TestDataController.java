@@ -16,7 +16,7 @@ import com.wipro.jfs.service.TestDataService;
 public class TestDataController {
 	
 	@Autowired
-	TestDataService testDataService;
+	private TestDataService testDataService;
 
 	@RequestMapping(value = {"/{topic}/do", "{topic}Assessment.html"}, method = RequestMethod.GET)
 	public String getHibernateQuestions(@PathVariable("topic") String topic, Model model) {

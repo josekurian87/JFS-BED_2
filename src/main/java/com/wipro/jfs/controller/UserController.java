@@ -21,7 +21,7 @@ import com.wipro.jfs.service.UserService;
 public class UserController {
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
 	@RequestMapping(value = {"/", "/index.html"}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Model model) {
