@@ -62,7 +62,6 @@
 			<c:if test="${'P' == assessmentResult}">
 				<div id="msg" class="alert alert-success">
 					<strong>${message}</strong>
-					<strong>${userData.firstName}${userData.lastName}&nbsp;${userData.email}</strong>
 				</div>
 				<a href="${pageContext.request.contextPath}/" class="btn btn-info" role="button">Exit</a>
 			</c:if>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%>
 <%@ page session="false"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +50,37 @@
 										<span id="userType${loop.index+1}">
 										<c:if test="${'A' == user.type}">Admin</c:if>
 										<c:if test="${'C' == user.type}">Candidate</c:if>
+										</span>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</c:if>
+				<c:if test="${'TR' == reportType}">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Test Date</th>
+								<th>Assessment</th>
+								<th>Test Marks</th>
+								<th>Email ID</th>
+								<th>Total Marks</th>
+								<th>Result</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${testResultList}" var="testResult" varStatus="loop">
+								<tr>
+									<td><span id="testDate${loop.index+1}"><fmt:formatDate pattern = "dd-MM-yyyy HH:mm:ss"  value="${testResult.testDate}" /><%-- <c:out value="${testResult.testDate}" /> --%></span></td>
+									<td><span id="assessment${loop.index+1}"><c:out value="${testResult.topic}" /></span></td>
+									<td><span id="marks${loop.index+1}"><c:out value="${testResult.score}" /></span></td>
+									<td><span id="email${loop.index+1}"><c:out value="${testResult.email}" /></span></td>
+									<td><span id="totalMarks${loop.index+1}">50</span></td>
+									<td>
+										<span id="result${loop.index+1}">
+										<c:if test="${testResult.score >= 30}">Passed</c:if>
+										<c:if test="${testResult.score <  30}">Failed</c:if>
 										</span>
 									</td>
 								</tr>

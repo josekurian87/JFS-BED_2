@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,7 +24,6 @@ public class UserController {
 	
 	@RequestMapping(value = {"/", "/index.html"}, method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Model model) {
-		System.out.println(new BCryptPasswordEncoder().encode("Wipro@123"));
 		userService.removeUserSession(request.getSession());
 		model.addAttribute("user", new User());
 		model.addAttribute("title", "Online Assessment - Home Page");

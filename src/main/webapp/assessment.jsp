@@ -36,9 +36,9 @@
 						<li class="list-group-item">
 							<span id="question${loop.index+1}"><b><c:out value="${question.question}" /></b></span><br>
 							<input type="radio" id="Q${loop.index+1}-Opt1" name="Question${loop.index+1}" value="${question.option1}">&nbsp;<span id="option1${loop.index+1}"><c:out value="${question.option1}" /></span><br>
-							<input type="radio" id="Q${loop.index+1}-Opt2" name="Question${loop.index+1}" value="${question.option1}">&nbsp;<span id="option2${loop.index+1}"><c:out value="${question.option2}" /></span><br>
-							<input type="radio" id="Q${loop.index+1}-Opt3" name="Question${loop.index+1}" value="${question.option1}">&nbsp;<span id="option3${loop.index+1}"><c:out value="${question.option3}" /></span><br>
-							<input type="radio" id="Q${loop.index+1}-Opt4" name="Question${loop.index+1}" value="${question.option1}">&nbsp;<span id="option4${loop.index+1}"><c:out value="${question.option4}" /></span><br>
+							<input type="radio" id="Q${loop.index+1}-Opt2" name="Question${loop.index+1}" value="${question.option2}">&nbsp;<span id="option2${loop.index+1}"><c:out value="${question.option2}" /></span><br>
+							<input type="radio" id="Q${loop.index+1}-Opt3" name="Question${loop.index+1}" value="${question.option3}">&nbsp;<span id="option3${loop.index+1}"><c:out value="${question.option3}" /></span><br>
+							<input type="radio" id="Q${loop.index+1}-Opt4" name="Question${loop.index+1}" value="${question.option4}">&nbsp;<span id="option4${loop.index+1}"><c:out value="${question.option4}" /></span><br>
 						</li>
 					</c:forEach>
 				</ul>

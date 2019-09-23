@@ -28,13 +28,4 @@ public class TestDataController {
 		return "assessment";
 	}
 
-//	@RequestMapping(value = {"/{topic}/do", "springAssessment.html"}, method = RequestMethod.GET)
-//	public String getSpringQuestions(@PathVariable("topic") String topic, Model model) {
-//		List<TestData> questionList = testDataService.getQuestions("Spring");
-//		model.addAttribute("title", "Spring Assessment");
-//		model.addAttribute("questionList", questionList);
-//		model.addAttribute("topic", topic);
-//		return "assessment";
-//	}
-
 }

@@ -22,20 +22,16 @@ public class UserService {
 	List<User> userList = null;
 	
 	public String validateLogin(User user) {
-//		userList = userDao.findByEmail(user.getEmail());
-//		if(userList.size()>0) {
-//			User dbUser = userList.get(0);
 		User dbUser = userDao.findByEmail(user.getEmail());
-		if(user!=null && encoder.matches(user.getPassword(), dbUser.getPassword())) {
+		if(dbUser == null) {
+			return "I";
+		} else if(user!=null && encoder.matches(user.getPassword(), dbUser.getPassword())) {
 			return ("A".equals(dbUser.getType()))?"SA":"SC";
-		}
-//		}
+		} else 
 		return "I";
 	}
 
 	public String registerUser(User user) {
-//		List<User> result = userDao.findByEmail(user.getEmail()); 
-//		if(result.size()>0) {
 		User dbUser = userDao.findByEmail(user.getEmail());
 		if(dbUser!=null) {
 			return "D";

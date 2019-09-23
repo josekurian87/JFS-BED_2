@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -15,7 +17,11 @@ import org.springframework.data.annotation.CreatedDate;
 @Table(name = "TEST_RESULT")
 public class TestResult {
 
-	@Id
+    @Id
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
 	@Column(name = "EMAIL", nullable = false, length = 40)
 	private String email;
 	
@@ -29,6 +35,14 @@ public class TestResult {
 	
 	@Column(name = "SCORE", nullable = false)
 	private int score;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getEmail() {
 		return email;
@@ -62,8 +76,9 @@ public class TestResult {
 		this.score = score;
 	}
 
-	public TestResult(String email, String topic, Date testDate, int score) {
+	public TestResult(Long id, String email, String topic, Date testDate, int score) {
 		super();
+		this.id = id;
 		this.email = email;
 		this.topic = topic;
 		this.testDate = testDate;
